@@ -6,9 +6,31 @@
 //
 
 #include <iostream>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+int main()
+{
+    int A[40];
+    int n,d=0;
+    cout<<"Enter the number of elements in the array : "<<endl;
+    cin>>n;
+    cout<<"Enter the elements in the array : "<<endl;
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    cout<<"The duplicates in the array are given by : "<<endl;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(A[i]==A[j])
+            {
+                d++;
+                A[j]=-(i+j+A[i]);
+            }
+        }
+        if(d>0)
+            cout<<"The element "<<A[i]<<" is repeated "<<d<<" times "<<endl;
+        d=0;
+    }
     return 0;
 }
+
